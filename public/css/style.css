@@ -1,0 +1,92 @@
+/* Global Styles */
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Universal font family */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+/* Index Page Specific Styles */
+.index-page {
+    background-color: #282c34; /* Dark background for the index page */
+    color: #61dafb; /* Light blue text for the index page */
+}
+
+.index-page h1 {
+    font-size: 4rem; /* Large font size for the main title */
+    animation: fadeIn 2s ease-out; /* Fade-in animation for the heading */
+}
+
+/* New Page Specific Styles */
+.new-page {
+    background-color: #f5f5f5; /* Light background for the new page */
+    color: #333; /* Dark text for better contrast */
+}
+
+.new-page h1 {
+    
+    color: #007bff; /* Blue color for headings */
+    font-size: 40px; /* Adjusted font size */
+    margin-top: 10; /* No top margin */
+}
+
+.new-page img {
+    border-radius: 100px; /* Rounded corners for images */
+    max-width: 90%; /* Max width for responsive design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-top: 20px; /* Margin top for spacing */
+}
+
+/* 404 Page Specific Styles */
+.page-404 {
+    height: 100%; /* Full height for the 404 page */
+    background: #f0f0f5; /* Specific background for the 404 page */
+}
+
+.page-404 .container {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.page-404 h1 {
+    font-size: 72px;
+    color: #333;
+}
+
+.page-404 p {
+    font-size: 24px;
+    color: #666;
+}
+
+.page-404 a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff; /* Button background */
+    color: #fff; /* Button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.page-404 a:hover {
+    background: #0056b3;
+}
+
+.page-404 .floating {
+    animation: float 6s ease-in-out infinite; /* Floating animation */
+}
+
+/* Keyframes and Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
