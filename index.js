@@ -5,8 +5,7 @@ const path = require('path');
 const fs = require('fs'); // require the file system module
 const PORT = process.env.PORT || 3500;
 const mongoose = require('mongoose');
-const onnectDB = require('./config/database');
-const { connect } = require('http2');
+const connect = require('http2');
 const connectDB = require('./config/database');
 
 connectDB();
