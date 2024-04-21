@@ -20,10 +20,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use('/states', require('./routes/states'));
 
 
-app.get('^/$|index(.html)?', (req, res) => {
-    // res.sendFile('./views/index.html', { root:_});
+app.get(['/', '/index', '/index.html'], (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
-})
+});
 app.get('^/$|states(.json)?', (req, res) => {
     // res.sendFile('./views/index.html', { root:_});
     res.sendFile(path.join(__dirname, 'data', 'statesData.json'));
