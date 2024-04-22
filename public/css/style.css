@@ -1,6 +1,9 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 /* Global Styles */
 body, html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,69 +11,65 @@ body, html {
     align-items: center;
     text-align: center;
     height: 100vh;
-    background-image: url('images/usa-map-background.jpg'); /* Background image of a USA map */
+    background: linear-gradient(135deg, #6D5BBA 0%, #8D85EE 100%); /* Stylish gradient background */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.welcome-section {
+.welcome-section, .fun-facts-section, .container {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for better readability */
-    color: #fff;
-    border-radius: 8px;
-    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for content */
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    width: 90%;
+    max-width: 600px;
+    margin-top: 2rem;
 }
 
-.welcome-section h1 {
-    font-size: 4rem;
+h1, h2 {
+    font-weight: 700;
+    color: #5A4FCF; /* Deep violet color for headings */
+    letter-spacing: 1px;
     animation: fadeIn 2s ease-out;
 }
 
-.welcome-section p {
-    font-size: 1.5rem;
-    color: #ADE8F4; /* Soft blue color */
+p, li {
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
 }
 
 .btn-learn-more, .btn-go-home {
+    font-weight: 600;
     display: inline-block;
-    padding: 10px 20px;
-    background: #007bff;
-    color: #fff;
+    padding: 12px 24px;
+    background: #FF785A; /* Vibrant button color */
+    color: white;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+    border-radius: 20px;
+    transition: transform 0.2s ease-out, background-color 0.2s ease;
 }
 
 .btn-learn-more:hover, .btn-go-home:hover {
-    background: #0056b3;
-}
-
-.fun-facts-section {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.fun-facts-section h2 {
-    color: #333;
-    font-size: 2.5rem;
-}
-
-.fun-facts-section ul {
-    text-align: left;
-    list-style-position: inside;
-}
-
-.fun-facts-section li {
-    font-size: 1.2rem;
-    color: #666;
+    transform: scale(1.05);
+    background: #DD4A48; /* Darker shade on hover */
 }
 
 /* Keyframes and Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    body, html {
+        padding: 20px;
+    }
+
+    .welcome-section, .fun-facts-section, .container {
+        width: 100%;
+        margin-top: 1rem;
+    }
 }
