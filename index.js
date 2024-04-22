@@ -5,7 +5,8 @@ const path = require('path');
 const fs = require('fs'); // require the file system module
 const PORT = process.env.PORT || 3500;
 const mongoose = require('mongoose');
-const connect = require('http2');
+const onnectDB = require('./config/database');
+const { connect } = require('http2');
 const connectDB = require('./config/database');
 
 connectDB();
@@ -15,12 +16,19 @@ require('./config/database');
 // Body parser middleware to handle JSON data
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    next();
+});
+
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/states', require('./routes/states'));
 
 
-app.get(['/', '/index', '/index.html'], (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 app.get('^/$|states(.json)?', (req, res) => {

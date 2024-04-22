@@ -103,12 +103,14 @@ const getDetail = (detail) => {
         res.json({ 'state': state.state, [detail_title]: detail_value });
     }
 }
-
 const addFunFact = async (req, res) => {
     const { stateCode } = req.params;
     const { funfacts } = req.body;
 
-    if (!funfacts || !Array.isArray(funfacts)) {
+    if (!funfacts) {
+        return res.status(400).json({ 'message': 'State fun facts value required' });
+    }
+    if(!Array.isArray(funfacts)){
         return res.status(400).json({ 'message': 'State fun facts value must be an array' });
     }
 
@@ -119,12 +121,20 @@ const addFunFact = async (req, res) => {
 
     try {
         // Find the state or create it if it does not exist
-        const state = await State.findOneAndUpdate(
+        const updatedState = await State.findOneAndUpdate(
             { stateCode: stateCode.toUpperCase() },
             { $push: { funfacts: { $each: funfacts } } },
             { new: true, upsert: true, setDefaultsOnInsert: true }
         );
-        res.status(201).json(state);
+
+        const responseObject = {
+            _id: updatedState._id,
+            stateCode: updatedState.stateCode,
+            funfacts: updatedState.funfacts,
+            __v: updatedState.__v
+        };
+
+        res.status(200).json(responseObject);
     } catch (error) {
         res.status(500).json({ 'message': error.message });
     }
@@ -134,26 +144,22 @@ const updateFunFact = async (req, res) => {
     const { stateCode } = req.params;
     const { index, funfact } = req.body;
 
-    // Find the state locally to check if it exists
     const localState = data.States.find(s => s.code === stateCode.toUpperCase());
     if (!localState) {
         return res.status(400).json({ 'message': 'Invalid state abbreviation parameter' });
     }
 
-    if (!index) {
+    if (!index || isNaN(parseInt(index))) {
         return res.status(400).json({ 'message': 'State fun fact index value required' });
     }
+
     if (!funfact) {
         return res.status(400).json({ 'message': 'State fun fact value required' });
     }
 
     try {
         const state = await State.findOne({ stateCode: stateCode.toUpperCase() });
-        if (!state) {
-            return res.status(404).json({ 'message': `No Fun Facts found for ${localState.state}` });
-        }
-        
-        if (!state.funfacts || state.funfacts.length === 0) {
+        if (!state || !state.funfacts || state.funfacts.length === 0) {
             return res.status(404).json({ 'message': `No Fun Facts found for ${localState.state}` });
         }
         
@@ -162,10 +168,17 @@ const updateFunFact = async (req, res) => {
             return res.status(404).json({ 'message': `No Fun Fact found at that index for ${localState.state}` });
         }
 
-        // Update the fun fact at the given index
         state.funfacts[idx] = funfact;
-        await state.save();
-        res.json(state);
+        const updatedState = await state.save();
+
+        const responseObject = {
+            _id: updatedState._id,
+            stateCode: updatedState.stateCode,
+            funfacts: updatedState.funfacts,
+            __v: updatedState.__v
+        };
+
+        res.json(responseObject);
     } catch (error) {
         res.status(500).json({ 'message': error.message });
     }
@@ -181,18 +194,13 @@ const deleteFunFact = async (req, res) => {
         return res.status(400).json({ 'message': 'Invalid state abbreviation parameter' });
     }
 
-    if (!index) {
+    if (!index || isNaN(parseInt(index))) {
         return res.status(400).json({ 'message': 'State fun fact index value required' });
     }
 
     try {
         const state = await State.findOne({ stateCode: stateCode.toUpperCase() });
-        if (!state) {
-            return res.status(404).json({ 'message': `No Fun Facts found for ${localState.state}` });
-        }
-        
-        // Check if fun facts are empty or undefined
-        if (!state.funfacts || state.funfacts.length === 0) {
+        if (!state || !state.funfacts || state.funfacts.length === 0) {
             return res.status(404).json({ 'message': `No Fun Facts found for ${localState.state}` });
         }
         
@@ -200,9 +208,18 @@ const deleteFunFact = async (req, res) => {
         if (idx < 0 || idx >= state.funfacts.length) {
             return res.status(404).json({ 'message': `No Fun Fact found at that index for ${localState.state}` });
         }
+
         state.funfacts.splice(idx, 1);
-        await state.save();
-        res.json(state);
+        const updatedState = await state.save();
+
+        const responseObject = {
+            _id: updatedState._id,
+            stateCode: updatedState.stateCode,
+            funfacts: updatedState.funfacts,
+            __v: updatedState.__v
+        };
+
+        res.json(responseObject);
     } catch (error) {
         res.status(500).json({ 'message': error.message });
     }
