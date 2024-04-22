@@ -2,22 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* Global Styles */
-body, html {
-    font-family: 'Poppins', sans-serif;
+html, body {
+    height: 100%; /* Ensuring the html and body cover the full height of the viewport */
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centering content vertically */
     text-align: center;
-    height: 100vh;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #6D5BBA 0%, #8D85EE 100%); /* Stylish gradient background */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.welcome-section, .fun-facts-section, .container {
+.container, .welcome-section, .fun-facts-section {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Light background for content */
     color: #333;
@@ -25,7 +26,10 @@ body, html {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
     width: 90%;
     max-width: 600px;
-    margin-top: 2rem;
+    margin: auto; /* Centering horizontally and adding space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensuring content within containers is centered */
 }
 
 h1, h2 {
@@ -64,12 +68,16 @@ p, li {
 }
 
 @media (max-width: 768px) {
-    body, html {
-        padding: 20px;
+    html, body {
+        padding: 0; /* Remove padding for smaller screens */
+        flex-direction: row; /* Change direction to accommodate smaller screens */
+        justify-content: center;
+        align-items: center;
     }
 
-    .welcome-section, .fun-facts-section, .container {
-        width: 100%;
-        margin-top: 1rem;
+    .container, .welcome-section, .fun-facts-section {
+        width: 100%; /* Full width on smaller screens */
+        margin: 20px 0; /* Adjust margin for better spacing */
+        box-shadow: none; /* Optional: remove shadow on small screens for a flatter design */
     }
 }
