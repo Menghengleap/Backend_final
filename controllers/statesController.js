@@ -71,7 +71,7 @@ const getFunFact = async (req, res) => {
         const randomIndex = Math.floor(Math.random() * state.funfacts.length);
         const funFact = state.funfacts[randomIndex];
 
-        res.json({ 'funFact': funFact });
+        res.json({ 'funfact': funFact });
     } catch (error) {
         res.status(500).json({ 'message': error.message });
     }
