@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3500;
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const { connect } = require('http2');
-const connectDB = require('./config/database');
 
 connectDB();
 // Database connection
