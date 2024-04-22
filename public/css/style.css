@@ -12,7 +12,7 @@ html, body {
     justify-content: center; /* Centering content vertically */
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #6D5BBA 0%, #8D85EE 100%); /* Stylish gradient background */
+    background: linear-gradient(135deg, #6D5BBA 0%, #6D5BBA 100%); /* Stylish gradient background */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
