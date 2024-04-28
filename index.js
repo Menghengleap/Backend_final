@@ -22,10 +22,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/ ',express.static(path.join(__dirname, '/public')));
+app.use('/',express.static(path.join(__dirname, '/public')));
 
 app.use('/states', require('./routes/states'));
-app.use('/', require('./routes/root'));
+app.use('/ ', require('./routes/root'));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
