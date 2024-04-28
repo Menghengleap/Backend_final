@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use('/',express.static(path.join(__dirname, '/public')));
 
 app.use('/states', require('./routes/states'));
 app.use('/', require('./routes/root'));
@@ -30,16 +30,7 @@ app.use('/', require('./routes/root'));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
-app.get('^/$|states(.json)?', (req, res) => {
-    // res.sendFile('./views/index.html', { root:_});
-    res.sendFile(path.join(__dirname, 'data', 'statesData.json'));
-})
-app.get('/^/$|new-page(.html)?', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'new-page.html'));
-})
-app.get('/^/$|old-page(.html)?', (req, res) => {
-    res.redirect(301, '/new-page.html');
-});
+
 
 
 
