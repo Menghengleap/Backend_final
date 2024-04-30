@@ -26,7 +26,10 @@ app.use((req, res, next) => {
     next();
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b221db67c2a35e51779ed3c1b19ad3d6f10ba029
 app.use('/',express.static(path.join(__dirname, '/public')));
 
 app.use('/states', require('./routes/states'));
@@ -35,6 +38,12 @@ app.use('/', require('./routes/root'));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b221db67c2a35e51779ed3c1b19ad3d6f10ba029
 
 
 app.get('/*',(req, res) => {
