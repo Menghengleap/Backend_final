@@ -7,8 +7,12 @@ const PORT = process.env.PORT || 3500;
 const mongoose = require('mongoose');
 const connectDB = require('./config/database');
 const { connect } = require('http2');
+const cors = require('cors');
+const corsOptions = require('./config/corsOption');
 
 connectDB();
+
+app.use(cors(corsOptions));
 // Database connection
 require('./config/database');
 
@@ -16,11 +20,12 @@ require('./config/database');
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "https://dazzling-snickerdoodle-777101.netlify.app");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
     next();
 });
+
 
 app.use('/',express.static(path.join(__dirname, '/public')));
 
@@ -30,9 +35,6 @@ app.use('/', require('./routes/root'));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
-
-
-
 
 
 app.get('/*',(req, res) => {
