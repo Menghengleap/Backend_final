@@ -1,13 +1,3 @@
-// const mongoose = require('mongoose');
-
-// mongoose.connect('mongodb://127.0.0.1:27017/statesDB')
-//   .then(() => {
-//   })
-//   .catch(err => {
-//     console.error("Error connecting to MongoDB:", err);
-//     process.exit(1);
-//   });
-
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
