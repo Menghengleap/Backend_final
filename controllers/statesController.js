@@ -151,7 +151,7 @@ const updateFunFact = async (req, res) => {
     }
 
     if (!index || isNaN(parseInt(index))) {
-        return res.status(400).json({ 'message': 'State fun fact index value required' });
+        return res.status(400).json({ 'message': 'State fun facts index value required' });
     }
 
     if (!funfact) {
@@ -196,7 +196,7 @@ const deleteFunFact = async (req, res) => {
     }
 
     if (!index || isNaN(parseInt(index))) {
-        return res.status(400).json({ 'message': 'State fun fact index value required' });
+        return res.status(400).json({ 'message': 'State fun facts index value required' });
     }
 
     try {
