@@ -103,6 +103,7 @@ const getDetail = (detail) => {
         res.json({ 'state': state.state, [detail_title]: detail_value });
     }
 }
+
 const addFunFact = async (req, res) => {
     const { stateCode } = req.params;
     const { funfacts } = req.body;
