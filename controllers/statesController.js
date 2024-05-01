@@ -154,7 +154,7 @@ const updateFunFact = async (req, res) => {
     }
 
     if (!funfact) {
-        return res.status(400).json({ 'message': 'State fun fact value required' });
+        return res.status(400).json({ 'message': 'State fun facts value required' });
     }
 
     try {
