@@ -103,7 +103,6 @@ const getDetail = (detail) => {
         res.json({ 'state': state.state, [detail_title]: detail_value });
     }
 }
-
 const addFunFact = async (req, res) => {
     const { stateCode } = req.params;
     const { funfacts } = req.body;
@@ -151,11 +150,11 @@ const updateFunFact = async (req, res) => {
     }
 
     if (!index || isNaN(parseInt(index))) {
-        return res.status(400).json({ 'message': 'State fun facts index value required' });
+        return res.status(400).json({ 'message': 'State fun fact index value required' });
     }
 
     if (!funfact) {
-        return res.status(400).json({ 'message': 'State fun facts value required' });
+        return res.status(400).json({ 'message': 'State fun fact value required' });
     }
 
     try {
@@ -196,7 +195,7 @@ const deleteFunFact = async (req, res) => {
     }
 
     if (!index || isNaN(parseInt(index))) {
-        return res.status(400).json({ 'message': 'State fun facts index value required' });
+        return res.status(400).json({ 'message': 'State fun fact index value required' });
     }
 
     try {
