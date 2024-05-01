@@ -108,7 +108,7 @@ const addFunFact = async (req, res) => {
     const { funfacts } = req.body;
 
     if (!funfacts) {
-        return res.status(400).json({ 'message': 'State fun facts value required' });
+        return res.status(400).json({ 'message': "State fun facts value required" });
     }
     if(!Array.isArray(funfacts)){
         return res.status(400).json({ 'message': 'State fun facts value must be an array' });
