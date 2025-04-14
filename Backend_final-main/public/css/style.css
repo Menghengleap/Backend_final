@@ -1,0 +1,83 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Global Styles */
+html, body {
+    height: 100%; /* Ensuring the html and body cover the full height of the viewport */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centering content vertically */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6D5BBA 0%, #6D5BBA 100%); /* Stylish gradient background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container, .welcome-section, .fun-facts-section {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for content */
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    width: 90%;
+    max-width: 600px;
+    margin: auto; /* Centering horizontally and adding space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensuring content within containers is centered */
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: #5A4FCF; /* Deep violet color for headings */
+    letter-spacing: 1px;
+    animation: fadeIn 2s ease-out;
+}
+
+p, li {
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-learn-more, .btn-go-home {
+    font-weight: 600;
+    display: inline-block;
+    padding: 12px 24px;
+    background: #FF785A; /* Vibrant button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: transform 0.2s ease-out, background-color 0.2s ease;
+}
+
+.btn-learn-more:hover, .btn-go-home:hover {
+    transform: scale(1.05);
+    background: #DD4A48; /* Darker shade on hover */
+}
+
+/* Keyframes and Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        padding: 0; /* Remove padding for smaller screens */
+        flex-direction: row; /* Change direction to accommodate smaller screens */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container, .welcome-section, .fun-facts-section {
+        width: 100%; /* Full width on smaller screens */
+        margin: 20px 0; /* Adjust margin for better spacing */
+        box-shadow: none; /* Optional: remove shadow on small screens for a flatter design */
+    }
+}
