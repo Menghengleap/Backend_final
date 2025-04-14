@@ -1,27 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to USA State Data</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Khmer New Year</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6b3, #ffcc99);
+      color: #4b2e1e;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #d48806;
+      text-shadow: 2px 2px 5px #fff3e0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .flower {
+      position: absolute;
+      width: 100px;
+      opacity: 0.5;
+      animation: float 10s infinite;
+    }
+
+    .flower:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .flower:nth-child(2) {
+      top: 20%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .flower:nth-child(3) {
+      bottom: 10%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    .flower:nth-child(4) {
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(15deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      font-size: 1rem;
+      color: #86592d;
+    }
+  </style>
 </head>
-<body class="index-page">
-    <div class="welcome-section">
-        <h1>Welcome to USA State Data</h1>
-        <p>Explore engaging facts and data about the 50 states!</p>
-        <a href="#fun-facts" class="btn-learn-more">Learn More</a>
-    </div>
-    <div id="fun-facts" class="fun-facts-section">
-        <h2>Did You Know?</h2>
-        <ul>
-            <li>California's economy is so large, it would be the 5th largest in the world if it were a country.</li>
-            <li>Alaska has over 3,000 rivers and 3 million lakes.</li>
-            <li>Florida is the only state that borders both the Atlantic Ocean and the Gulf of Mexico.</li>
-            <li>Maine is the single largest producer of blueberries in the United States.</li>
-        </ul>
-        <a href="/" class="btn-go-home">Go Home</a>
-    </div>
+<body>
+  <div class="container">
+    <h1>សួស្តីឆ្នាំថ្មី! EMEY Muah muah</h1>
+    <h2>Happy Khmer New Year 2025 🎉</h2>
+    <p>Wishing you happiness, prosperity, and good health.</p>
+  </div>
+
+  <!-- Optional decorative flower icons (you can replace these with Khmer New Year patterns or symbols) -->
+  <img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Flower_icon_1.png" alt="Flower" />
+  <img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Flower_icon_1.png" alt="Flower" />
+  <img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Flower_icon_1.png" alt="Flower" />
+  <img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Flower_icon_1.png" alt="Flower" />
+
+  <div class="footer">
+    សូមឲ្យជួបតែសុភមង្គល នៅឆ្នាំថ្មីនេះ ❤️
+  </div>
 </body>
 </html>
